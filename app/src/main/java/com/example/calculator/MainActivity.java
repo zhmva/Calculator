@@ -149,6 +149,22 @@ public class MainActivity extends AppCompatActivity {
                 operation = "+";
                 tvResult.setText(firstVariable + operation);
                 break;
+            case R.id.btn_minus:
+                firstVariable = Integer.parseInt(tvResult.getText().toString());
+                operation = "-";
+                tvResult.setText(firstVariable + operation);
+                break;
+            case R.id.btn_D:
+                firstVariable = Integer.parseInt(tvResult.getText().toString());
+                operation = "÷";
+                tvResult.setText(firstVariable + operation);
+                break;
+            case R.id.btn_x:
+                firstVariable = Integer.parseInt(tvResult.getText().toString());
+                operation = "×";
+                tvResult.setText(firstVariable + operation);
+                break;
+
             case R.id.btn_equals:
 
                 if (operation.equals("+")) {
