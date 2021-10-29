@@ -2,9 +2,11 @@ package com.example.calculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -13,18 +15,21 @@ public class MainActivity extends AppCompatActivity {
     private Integer firstVariable, secondVariable;
     private String operation;
     private boolean isFirstVarClick = false;
+    private android.widget.Button Button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tvResult = findViewById(R.id.tv_result);
+        Button = (Button) findViewById(R.id.send_res);
 
     }
 
     public void onNumberClick(View view) {
         switch (view.getId()) {
             case R.id.btn_1:
+                Button.setVisibility(View.INVISIBLE);
                 if (tvResult.getText().toString().equals("0")) {
                     tvResult.setText("1");
                 } else {
@@ -36,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 isFirstVarClick = false;
                 break;
             case R.id.btn_2:
+                Button.setVisibility(View.INVISIBLE);
                 if (tvResult.getText().toString().equals("0")) {
                     tvResult.setText("2");
                 } else {
@@ -47,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 isFirstVarClick = false;
                 break;
             case R.id.btn_0:
+                Button.setVisibility(View.INVISIBLE);
                 if (tvResult.getText().toString().equals("0")){
                     tvResult.setText("0");
                 }else{
@@ -58,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 isFirstVarClick = false;
                 break;
             case R.id.btn_3:
+                Button.setVisibility(View.INVISIBLE);
                 if (tvResult.getText().toString().equals("0")){
                     tvResult.setText("3");
                 }else{
@@ -69,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 isFirstVarClick = false;
                 break;
             case R.id.btn_4:
+                Button.setVisibility(View.INVISIBLE);
                 if (tvResult.getText().toString().equals("0")){
                     tvResult.setText("4");
                 }else{
@@ -80,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 isFirstVarClick = false;
                 break;
             case R.id.btn_5:
+                Button.setVisibility(View.INVISIBLE);
                 if (tvResult.getText().toString().equals("0")){
                     tvResult.setText("5");
                 }else{
@@ -91,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 isFirstVarClick = false;
                 break;
             case R.id.btn_6:
+                Button.setVisibility(View.INVISIBLE);
                 if (tvResult.getText().toString().equals("0")){
                     tvResult.setText("6");
                 }else{
@@ -102,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
                 isFirstVarClick = false;
                 break;
             case R.id.btn_7:
+                Button.setVisibility(View.INVISIBLE);
                 if (tvResult.getText().toString().equals("0")){
                     tvResult.setText("7");
                 }else{
@@ -113,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
                 isFirstVarClick = false;
                 break;
             case R.id.btn_8:
+                Button.setVisibility(View.INVISIBLE);
                 if (tvResult.getText().toString().equals("0")){
                     tvResult.setText("8");
                 }else{
@@ -124,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
                 isFirstVarClick = false;
                 break;
             case R.id.btn_9:
+                Button.setVisibility(View.INVISIBLE);
                 if (tvResult.getText().toString().equals("0")){
                     tvResult.setText("9");
                 }else{
@@ -135,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
                 isFirstVarClick = false;
                 break;
             case R.id.btn_ac:
+                Button.setVisibility(View.INVISIBLE);
                 tvResult.setText("0");
                 firstVariable = null;
                 secondVariable = null;
@@ -145,27 +160,32 @@ public class MainActivity extends AppCompatActivity {
     public void onOperationClick(View view) {
         switch (view.getId()) {
             case R.id.btn_plus:
+                Button.setVisibility(View.INVISIBLE);
                 firstVariable = Integer.parseInt(tvResult.getText().toString());
                 operation = "+";
                 tvResult.setText(firstVariable + operation);
                 break;
             case R.id.btn_minus:
+                Button.setVisibility(View.INVISIBLE);
                 firstVariable = Integer.parseInt(tvResult.getText().toString());
                 operation = "-";
                 tvResult.setText(firstVariable + operation);
                 break;
             case R.id.btn_D:
+                Button.setVisibility(View.INVISIBLE);
                 firstVariable = Integer.parseInt(tvResult.getText().toString());
-                operation = "÷";
+                operation = "/";
                 tvResult.setText(firstVariable + operation);
                 break;
             case R.id.btn_x:
+                Button.setVisibility(View.INVISIBLE);
                 firstVariable = Integer.parseInt(tvResult.getText().toString());
-                operation = "×";
+                operation = "*";
                 tvResult.setText(firstVariable + operation);
                 break;
 
             case R.id.btn_equals:
+                Button.setVisibility(View.VISIBLE);
 
                 if (operation.equals("+")) {
                     String text = tvResult.getText().toString();
@@ -205,5 +225,12 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 }
         }
+    }
+
+    public void sendResultClick(View view) {
+        Intent intent = new Intent(MainActivity.this, PolicyActivity.class);
+        String data = tvResult.getText().toString();
+        intent.putExtra("textKey", data);
+        startActivity(intent);
     }
 }

@@ -20,5 +20,15 @@
     <string name="point">.</string>
     <string name="equal">=</string>
     <string name="textview0">0</string>
+    <string name="send_result">Send Result</string>
+    <string name="Pro_Cat">Product Category</string>
+    <string name="policy">Policy</string>
+    <string name="brand">Brand</string>
+    <string name="origin_country">Origin Country</string>
+    <string name="policies">Policies</string>
+    <string name="current_policies">Current Policies</string>
+    <string name="export_as_csv">Export as CSV</string>
+    <string name="finish_all_activity">finish_all_activity</string>
+    <string name="finish_all_activities">Finish all activities</string>
 
 </resources>

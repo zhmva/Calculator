@@ -17,9 +17,21 @@
         android:paddingHorizontal="32dp"
         android:layout_height="0dp">
 
+        <Button
+            android:backgroundTint="@color/orange"
+            android:id="@+id/send_res"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:text="@string/send_result"
+            android:onClick="sendResultClick"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"/>
+
+
         <TextView
             android:id="@+id/tv_result"
-            android:maxLength="20"
+            android:maxLength="11"
             android:maxLines="1"
             android:gravity="end"
             android:layout_gravity="end|bottom"
@@ -27,7 +39,7 @@
             android:textSize="80sp"
             android:autoSizeTextType="uniform"
             android:text="@string/textview0"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="80dp"/>
 
     </FrameLayout>
